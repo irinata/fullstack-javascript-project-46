@@ -18,7 +18,7 @@
   "type": "module",
   "main": "gendiff.js",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+    "test": "npx jest"
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^4.4.1",

@@ -28,7 +28,7 @@ export default [
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
-    },    
+    },
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
     },

@@ -10,7 +10,7 @@ function loadJSON(filepath) {
   return JSON.parse(content)
 }
 
-function genDiff(data1, data2) {
+function getDiff(data1, data2) {
   const plus = '  + '
   const minus = '  - '
 
@@ -40,7 +40,7 @@ function genDiff(data1, data2) {
   return result.join('\n')
 }
 
-function getDiff(filepath1, filepath2) {
+function genDiff(filepath1, filepath2) {
   const [data1, data2] = [filepath1, filepath2].map(loadJSON)
-  return genDiff(data1, data2)
+  return getDiff(data1, data2)
 }

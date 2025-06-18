@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander'
-import { getDiff } from './src/filesDiff.js'
+import { genDiff } from './src/filesDiff.js'
 
 function command(filepath1, filepath2) {
-  const diff = getDiff(filepath1, filepath2)
+  const diff = genDiff(filepath1, filepath2)
   console.log(diff)
 }
 

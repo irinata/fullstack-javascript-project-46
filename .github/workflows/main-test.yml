@@ -1,11 +1,13 @@
-name: test and lint project
+name: Test and lint project
 on: push
 
 jobs:
   build:
     runs-on: ubuntu-latest
-      steps:
+    steps:      
       - uses: actions/checkout@v4
-      - run: make lint
-      - run: make test
+      - name: run linter
+        run: make lint
+      - name: run tests
+        run: make test
 

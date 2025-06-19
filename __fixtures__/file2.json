@@ -1,0 +1,8 @@
+{
+  "timeout": 20,
+  "ip": "192.168.0.2",
+  "verbose": true,
+  "host": "hexlet.io",
+  "name": "text2",
+  "data": "data2"
+}

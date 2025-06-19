@@ -1,16 +1,28 @@
 import path from 'path'
 import { readFileSync } from 'node:fs'
 import _ from 'lodash'
+import yaml from 'js-yaml'
 
-export { getDiff, genDiff }
+export { genFilesDiff }
 
-function loadJSON(filepath) {
-  const fp = path.resolve(process.cwd(), filepath)
-  const content = readFileSync(fp, 'utf-8')
-  return JSON.parse(content)
+function getParser(format) {
+  if (format === '.yml' || format === '.yaml') {
+    return yaml.load;
+  } else if (format === '.json') {
+    return JSON.parse;
+  } else {
+    throw TypeError(`Unsupported file format ${format}`)
+  }
 }
 
-function getDiff(data1, data2) {
+function loadData(filepath) {  
+  const parse = getParser(path.extname(filepath));
+  const fp = path.resolve(process.cwd(), filepath);
+  const content = readFileSync(fp, 'utf-8');
+  return parse(content);
+}
+
+function genDataDiff(data1, data2) {
   const plus = '  + '
   const minus = '  - '
 
@@ -40,7 +52,7 @@ function getDiff(data1, data2) {
   return result.join('\n')
 }
 
-function genDiff(filepath1, filepath2) {
-  const [data1, data2] = [filepath1, filepath2].map(loadJSON)
-  return getDiff(data1, data2)
+function genFilesDiff(filepath1, filepath2) {
+  const [data1, data2] = [filepath1, filepath2].map(loadData);
+  return genDataDiff(data1, data2)
 }

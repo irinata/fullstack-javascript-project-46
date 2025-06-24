@@ -7,7 +7,7 @@
     "url": "https://github.com/irinata/fullstack-javascript-project-46/issues"
   },
   "bin": {
-    "gendiff": "gendiff.js"
+    "gendiff": "bin/gendiff.js"
   },
   "repository": {
     "type": "git",

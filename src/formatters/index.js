@@ -1,10 +1,8 @@
-import { stylishFormatter } from './stylish.js'
-import { plainFormatter } from './plain.js'
-import { jsonFormatter } from './json.js'
+import stylishFormatter from './stylish.js'
+import plainFormatter from './plain.js'
+import jsonFormatter from './json.js'
 
-export { getFormatter }
-
-function getFormatter(formatName) {
+export default function getFormatter(formatName) {
   if (formatName === 'stylish') {
     return stylishFormatter
   }

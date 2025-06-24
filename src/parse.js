@@ -2,11 +2,9 @@ import path from 'path'
 import { readFileSync } from 'node:fs'
 import _ from 'lodash'
 import yaml from 'js-yaml'
-import { getFormatter } from './formatters/index.js'
+import getFormatter from './formatters/index.js'
 
-export { gendiff }
-
-function gendiff(filepath1, filepath2, formatName = 'stylish') {
+export default function genDiff(filepath1, filepath2, formatName = 'stylish') {
   const [data1, data2] = [filepath1, filepath2].map(loadData)
   return genDataDiff(data1, data2, formatName)
 }

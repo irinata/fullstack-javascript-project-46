@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { readFileSync } from 'node:fs'
-import { gendiff } from '../src/parsers.js'
+import genDiff from '../src/parse.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -21,7 +21,7 @@ describe('check default stylish output format', () => {
     const expected = readFixtureFile(stylishResult).trim()
     const filepath1 = getFixturePath(file1)
     const filepath2 = getFixturePath(file2)
-    const actual = gendiff(filepath1, filepath2)
+    const actual = genDiff(filepath1, filepath2)
     expect(actual).toEqual(expected)
   })
 })
@@ -35,7 +35,7 @@ describe('check plain output format', () => {
     const expected = readFixtureFile(plainResult).trim()
     const filepath1 = getFixturePath(file1)
     const filepath2 = getFixturePath(file2)
-    const actual = gendiff(filepath1, filepath2, 'plain')
+    const actual = genDiff(filepath1, filepath2, 'plain')
     expect(actual).toEqual(expected)
   })
 })
@@ -49,7 +49,7 @@ describe('check json output format', () => {
     const expected = readFixtureFile(jsonResult).trim()
     const filepath1 = getFixturePath(file1)
     const filepath2 = getFixturePath(file2)
-    const actual = gendiff(filepath1, filepath2, 'json')
+    const actual = genDiff(filepath1, filepath2, 'json')
     expect(actual).toEqual(expected)
   })
 })

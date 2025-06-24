@@ -1,4 +1,10 @@
-export { stylishFormatter }
+export default function stylishFormatter(tree) {
+  const outLines = ['{']
+  formatTree(1, [], tree, outLines)
+  outLines.push('}')
+  return outLines.join('\n')
+}
+
 
 function formatTree(depth, path, nodes, outLines) {
   nodes.forEach(node => formatNode(depth, path, node, outLines))
@@ -37,11 +43,4 @@ function formatNode(depth, path, node, outLines) {
     const sign = node.result === 'added' ? '+' : node.result === 'removed' ? '-' : undefined
     generateItem(depth, path, node.key, node.value, node.children, outLines, sign)
   }
-}
-
-function stylishFormatter(tree) {
-  const outLines = ['{']
-  formatTree(1, [], tree, outLines)
-  outLines.push('}')
-  return outLines.join('\n')
 }

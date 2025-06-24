@@ -16,7 +16,7 @@
   "license": "ISC",
   "author": "Irina Nekrasova",
   "type": "module",
-  "main": "gendiff.js",
+  "main": "src/parse.js",
   "scripts": {
     "test": "npx jest"
   },

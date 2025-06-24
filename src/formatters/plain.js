@@ -1,4 +1,8 @@
-export { plainFormatter }
+export default function plainFormatter(diffTree) {
+  const outLines = []
+  formatTree([], diffTree, outLines)
+  return outLines.join('\n')
+}
 
 function formatTree(path, nodes, outLines) {
   nodes.forEach(node => formatNode(path, node, outLines))
@@ -47,10 +51,4 @@ function formatNode(path, node, outLines) {
         formatTree([...path, node.key], node.children, outLines)
       }
   }
-}
-
-function plainFormatter(diffTree) {
-  const outLines = []
-  formatTree([], diffTree, outLines)
-  return outLines.join('\n')
 }

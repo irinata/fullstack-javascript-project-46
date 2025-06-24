@@ -43,5 +43,5 @@ function stylishFormatter(tree) {
   const outLines = ['{']
   formatTree(1, [], tree, outLines)
   outLines.push('}')
-  return outLines
+  return outLines.join('\n')
 }

@@ -6,4 +6,4 @@
 [![Test and lint project](https://github.com/irinata/fullstack-javascript-project-46/actions/workflows/main-test.yml/badge.svg)](https://github.com/irinata/fullstack-javascript-project-46/actions/workflows/main-test.yml)
 
 # Asciinema gendiff usage record (compare two plain JSON)
-https://asciinema.org/a/m0Q6O0IZsXspFItgrTuQG2foT
+https://asciinema.org/a/01YQccpmhoXjgr3OGrXBC97nw

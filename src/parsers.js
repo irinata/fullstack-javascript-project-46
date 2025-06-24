@@ -109,6 +109,5 @@ function genDataDiff(data1, data2, formatName) {
 
   const diffTree = calculateDiff(data1, data2)
   const formatter = getFormatter(formatName)
-  const lines = formatter(diffTree)
-  return (lines.join('\n'))
+  return formatter(diffTree)
 }

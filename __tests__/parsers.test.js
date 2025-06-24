@@ -10,8 +10,9 @@ const getFixturePath = filename => path.join(__dirname, '..', '__fixtures__', fi
 const readFixtureFile = filename => readFileSync(getFixturePath(filename), 'utf-8')
 const stylishResult = 'stylish.txt'
 const plainResult = 'plain.txt'
+const jsonResult = 'json.txt'
 
-describe('check default stylish format', () => {
+describe('check default stylish output format', () => {
   test.each([
     ['file1.json', 'file2.json'],
     ['file1.yml', 'file2.yaml'],
@@ -25,7 +26,7 @@ describe('check default stylish format', () => {
   })
 })
 
-describe('check plain format', () => {
+describe('check plain output format', () => {
   test.each([
     ['file1.json', 'file2.json'],
     ['file1.yml', 'file2.yaml'],
@@ -35,6 +36,20 @@ describe('check plain format', () => {
     const filepath1 = getFixturePath(file1)
     const filepath2 = getFixturePath(file2)
     const actual = gendiff(filepath1, filepath2, 'plain')
+    expect(actual).toEqual(expected)
+  })
+})
+
+describe('check json output format', () => {
+  test.each([
+    ['file1.json', 'file2.json'],
+    ['file1.yml', 'file2.yaml'],
+    ['file1.json', 'file2.yaml'],
+  ])('should generate diff for %s and %s', (file1, file2) => {
+    const expected = readFixtureFile(jsonResult).trim()
+    const filepath1 = getFixturePath(file1)
+    const filepath2 = getFixturePath(file2)
+    const actual = gendiff(filepath1, filepath2, 'json')
     expect(actual).toEqual(expected)
   })
 })

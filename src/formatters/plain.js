@@ -52,5 +52,5 @@ function formatNode(path, node, outLines) {
 function plainFormatter(diffTree) {
   const outLines = []
   formatTree([], diffTree, outLines)
-  return outLines
+  return outLines.join('\n')
 }

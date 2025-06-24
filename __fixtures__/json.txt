@@ -1,0 +1,152 @@
+[
+  {
+    "key": "common",
+    "result": "unchanged",
+    "children": [
+      {
+        "key": "follow",
+        "value": false,
+        "result": "added"
+      },
+      {
+        "key": "setting1",
+        "value": "Value 1",
+        "result": "unchanged"
+      },
+      {
+        "key": "setting2",
+        "value": 200,
+        "result": "removed"
+      },
+      {
+        "key": "setting3",
+        "result": "updated",
+        "from": true,
+        "to": null
+      },
+      {
+        "key": "setting4",
+        "value": "blah blah",
+        "result": "added"
+      },
+      {
+        "key": "setting5",
+        "result": "added",
+        "children": [
+          {
+            "key": "key5",
+            "value": "value5",
+            "result": "unchanged"
+          }
+        ]
+      },
+      {
+        "key": "setting6",
+        "result": "unchanged",
+        "children": [
+          {
+            "key": "doge",
+            "result": "unchanged",
+            "children": [
+              {
+                "key": "wow",
+                "result": "updated",
+                "from": "",
+                "to": "so much"
+              }
+            ]
+          },
+          {
+            "key": "key",
+            "value": "value",
+            "result": "unchanged"
+          },
+          {
+            "key": "ops",
+            "value": "vops",
+            "result": "added"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "group1",
+    "result": "unchanged",
+    "children": [
+      {
+        "key": "baz",
+        "result": "updated",
+        "from": "bas",
+        "to": "bars"
+      },
+      {
+        "key": "foo",
+        "value": "bar",
+        "result": "unchanged"
+      },
+      {
+        "key": "nest",
+        "result": "updated",
+        "fromChildren": [
+          {
+            "key": "key",
+            "value": "value",
+            "result": "unchanged"
+          }
+        ],
+        "to": "str"
+      }
+    ]
+  },
+  {
+    "key": "group2",
+    "result": "removed",
+    "children": [
+      {
+        "key": "abc",
+        "value": 12345,
+        "result": "unchanged"
+      },
+      {
+        "key": "deep",
+        "result": "unchanged",
+        "children": [
+          {
+            "key": "id",
+            "value": 45,
+            "result": "unchanged"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "group3",
+    "result": "added",
+    "children": [
+      {
+        "key": "deep",
+        "result": "unchanged",
+        "children": [
+          {
+            "key": "id",
+            "result": "unchanged",
+            "children": [
+              {
+                "key": "number",
+                "value": 45,
+                "result": "unchanged"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "fee",
+        "value": 100500,
+        "result": "unchanged"
+      }
+    ]
+  }
+]

@@ -5,7 +5,6 @@ export default function stylishFormatter(tree) {
   return outLines.join('\n')
 }
 
-
 function formatTree(depth, path, nodes, outLines) {
   nodes.forEach(node => formatNode(depth, path, node, outLines))
 }

@@ -1,10 +1,20 @@
 import globals from 'globals'
 import pluginJs from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
+import jsoncParser from 'jsonc-eslint-parser'
+import jsoncPlugin from 'eslint-plugin-jsonc'
 
 export default [
-  stylistic.configs.recommended,
   pluginJs.configs.recommended,
+  {
+    files: ['**/*.json'],
+    languageOptions: { parser: jsoncParser },
+    plugins: { jsonc: jsoncPlugin },
+    rules: {
+      ...jsoncPlugin.configs['recommended-with-json'].rules,
+      ...jsoncPlugin.configs['recommended-with-jsonc'].rules,
+    },
+  },
   {
     files: ['**/*.test.js'],
     languageOptions: {
@@ -14,12 +24,11 @@ export default [
     },
   },
   {
-    files: [
-      '**/*.{js}',
-    ],
+    files: ['**/*.js'],
+    ...stylistic.configs.recommended,
   },
   {
-    ignores: ['dist/'],
+    ignores: ['dist/', 'package.json', 'package-lock.json'],
   },
   {
     languageOptions: {
